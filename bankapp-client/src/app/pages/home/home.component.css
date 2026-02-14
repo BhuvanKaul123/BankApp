@@ -1,0 +1,81 @@
+/* Navbar container */
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 60px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Left side */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Logo */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-right: 20px;
+}
+
+/* Nav links */
+.navbar a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+/* Active route highlight */
+.navbar a.active {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Right side */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #ffffff;
+  color: #1e3c72;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-1px);
+}
+
+/* Main content area */
+.main-content {
+  padding: 30px;
+  background-color: #f5f7fb;
+  min-height: calc(100vh - 60px);
+}

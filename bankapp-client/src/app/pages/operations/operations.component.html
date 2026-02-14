@@ -1,0 +1,83 @@
+<h2>Operations</h2>
+
+<div class="operation-block">
+  <h3>Deposit</h3>
+  <input placeholder="Account ID" [(ngModel)]="depositAccountId" />
+  <input type="number" placeholder="Amount" [(ngModel)]="depositAmount" />
+  <button (click)="deposit()">Deposit</button>
+  
+  <p *ngIf="depositMessage" class="message" [ngClass]="depositSuccess ? 'success' : 'error'">
+    {{ depositMessage }}
+  </p>
+  <div class="json-box-error" *ngIf="depositError">
+    <p><b>Error:</b> {{depositError.errorMessage}}</p>
+    <p><b>StatusCode:</b> {{depositError.statusCode}}</p>
+    <p><b>Contact:</b> {{depositError.toContact}}</p>
+    <p><b>Timestamp:</b> {{depositError.timestamp}}</p>
+  </div>
+  <div class="json-box-success" *ngIf="depositTransaction">
+    <p><b>Transaction Id:</b> {{depositTransaction.transactionId}}</p>
+    <p><b>Transaction Type:</b> {{depositTransaction.transactionType}}</p>
+    <p><b>From Account:</b> {{depositTransaction.fromAccountId || "-"}}</p>
+    <p><b>To Account:</b> {{depositTransaction.accountId || "-"}}</p>
+    <p><b>Amount:</b> {{depositTransaction.amount}}</p>
+    <p><b>Transaction Status:</b> {{depositTransaction.transactionStatus}}</p>
+    <p><b>Remarks:</b> {{depositTransaction.remarks || "-"}}</p>
+  </div>
+</div>
+
+
+<div class="operation-block">
+  <h3>Withdraw</h3>
+  <input placeholder="Account ID" [(ngModel)]="withdrawAccountId" />
+  <input type="number" placeholder="Amount" [(ngModel)]="withdrawAmount" />
+  <button (click)="withdraw()">Withdraw</button>
+
+  <p *ngIf="withdrawMessage" class="message", [ngClass]="withdrawSuccess ? 'success' : 'error'">
+    {{ withdrawMessage }}
+  </p>
+  <div class="json-box-error" *ngIf="withdrawError">
+    <p><b>Error:</b> {{withdrawError.errorMessage}}</p>
+    <p><b>StatusCode:</b> {{withdrawError.statusCode}}</p>
+    <p><b>Contact:</b> {{withdrawError.toContact}}</p>
+    <p><b>Timestamp:</b> {{withdrawError.timestamp}}</p>
+  </div>
+  <div class="json-box-success" *ngIf="withdrawTransaction">
+    <p><b>Transaction Id:</b> {{withdrawTransaction.transactionId}}</p>
+    <p><b>Transaction Type:</b> {{withdrawTransaction.transactionType}}</p>
+    <p><b>From Account:</b> {{withdrawTransaction.accountId}}</p>
+    <p><b>To Account:</b> {{withdrawTransaction.toAccountId || "-"}}</p>
+    <p><b>Amount:</b> {{withdrawTransaction.amount}}</p>
+    <p><b>Transaction Status:</b> {{withdrawTransaction.transactionStatus}}</p>
+    <p><b>Remarks:</b> {{withdrawTransaction.remarks || "-"}}</p>
+  </div>
+</div>
+
+<div class="operation-block">
+  <h3>Transfer</h3>
+  <input placeholder="From Account ID" [(ngModel)]="transferFromId" />
+  <input placeholder="To Account ID" [(ngModel)]="transferToId" />
+  <input type="number" placeholder="Amount" [(ngModel)]="transferAmount" />
+  <button (click)="transfer()">Transfer</button>
+
+  <p *ngIf="transferMessage" class="message" [ngClass]="transferSuccess ? 'success' : 'error'">
+    {{ transferMessage }}
+  </p>
+  <div class="json-box-success" *ngIf="transferTransaction">
+    <p><b>Transaction Id:</b> {{transferTransaction.transactionId}}</p>
+    <p><b>Transaction Type:</b> {{transferTransaction.transactionType}}</p>
+    <p><b>From Account:</b> {{transferTransaction.fromAccountId}}</p>
+    <p><b>To Account:</b> {{transferTransaction.toAccountId}}</p>
+    <p><b>Amount:</b> {{transferTransaction.amount}}</p>
+    <p><b>Transaction Status:</b> {{transferTransaction.transactionStatus}}</p>
+    <p><b>Remarks:</b> {{transferTransaction.remarks || "-"}}</p>
+  </div>
+
+  <div class="json-box-error" *ngIf="transferError">
+    <p><b>Error:</b> {{transferError.errorMessage}}</p>
+    <p><b>StatusCode:</b> {{transferError.statusCode}}</p>
+    <p><b>Contact:</b> {{transferError.toContact}}</p>
+    <p><b>Timestamp:</b> {{transferError.timestamp}}</p>
+  </div>
+</div>
+

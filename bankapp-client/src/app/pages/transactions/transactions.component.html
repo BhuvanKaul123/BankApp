@@ -1,0 +1,40 @@
+<h2>Transactions</h2>
+
+<select [(ngModel)]="filterStatus" (change)="fetchTransactions()">
+  <option value="">All</option>
+  <option value="PENDING">Pending</option>
+  <option value="FAILED">Failed</option>
+  <option value="SUCCESSFUL">Successful</option>
+</select>
+
+<p class="error" *ngIf="error">{{ error }}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Failure Reason</th>
+      <th>Initiator ID</th>
+      <th>Receiver ID</th>
+      <th>Amount</th>
+      <th *ngIf="filterStatus === 'PENDING'">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tx of transactions">
+      <td>{{ tx.transactionId }}</td>
+      <td>{{ tx.transactionType }}</td>
+      <td>{{ tx.transactionStatus }}</td>
+      <td>{{ tx.failureReason || '-' }}</td>
+      <td>{{ tx.initiatorAccountId }}</td>
+      <td>{{ tx.recieverAccountId || '-' }}</td>
+      <td>{{ tx.amount | currency:"INR" }}</td>
+      <td *ngIf="filterStatus === 'PENDING'">
+        <button (click)="approve(tx.transactionId)">Approve</button>
+        <button (click)="reject(tx.transactionId)">Reject</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

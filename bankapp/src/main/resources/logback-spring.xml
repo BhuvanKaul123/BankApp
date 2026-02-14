@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PerformanceFile" class="ch.qos.logback.core.FileAppender">
+        <file>logs/performance.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="StatusFile" class="ch.qos.logback.core.FileAppender">
+        <file>logs/status.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.bankapp.aspects.PerformanceTrackerAspect" level="INFO" additivity="true">
+        <appender-ref ref="PerformanceFile"/>
+    </logger>
+    
+    <logger name="com.bankapp.aspects.StatusTrackerAspect" level="INFO" additivity="true">
+        <appender-ref ref="StatusFile"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+
+</configuration>

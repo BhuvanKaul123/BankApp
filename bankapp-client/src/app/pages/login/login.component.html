@@ -1,0 +1,36 @@
+<div class="page">
+  <div class="login-container">
+    <h2>Welcome Back</h2>
+    <p class="subtitle">Secure Bank Login</p>
+
+    <form (ngSubmit)="login()">
+      <div class="form-group">
+        <label>Username</label>
+        <input
+          type="text"
+          [(ngModel)]="model.username"
+          name="username"
+          required
+          placeholder="Enter your username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="model.password"
+          name="password"
+          required
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Logging in...' : 'Login' }}
+      </button>
+    </form>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+  </div>
+</div>

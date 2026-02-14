@@ -1,0 +1,12 @@
+service layer in 3 parts
+	account service (account crud)
+	Banktransaction service (Bank transaction crud)
+	Bank service (bank service operations like deposit withdraw transfer)
+
+
+too many DB hits
+
+to DO
+
+authentication
+tests

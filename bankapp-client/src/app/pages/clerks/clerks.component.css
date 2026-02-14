@@ -1,0 +1,177 @@
+/* ===== General Reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Page & Header ===== */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ===== Form Styling ===== */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+form input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1 1 200px;
+  transition: all 0.3s ease;
+}
+
+form input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52,152,219,0.4);
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #3498db;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* ===== Error Message ===== */
+.error {
+  color: #e74c3c;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ===== Table Styling ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+thead {
+  background: #3498db;
+  color: white;
+}
+
+tbody tr {
+  background: #ffffff;
+  transition: background 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+tbody tr:hover {
+  background: #d6eaf8;
+}
+
+td button {
+  background: #e74c3c;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+td button:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+}
+
+/* ===== Search Bar ===== */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-bar input {
+  flex: 1 1 250px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52,152,219,0.4);
+  outline: none;
+}
+
+.clear-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.clear-btn:hover {
+  background: #ccc;
+}
+
+.success {
+  margin-top: 10px;
+  color: #27ae60;
+  font-weight: 600;
+}
+
+.json-box-success {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #a6ffa6;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+}
+
+.json-box-error {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #f79090;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid #ddd;
+}
+.json-box-error p{
+  margin: 2px;
+}

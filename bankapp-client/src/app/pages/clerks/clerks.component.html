@@ -1,0 +1,61 @@
+<h2>Clerks Management</h2>
+
+<form (ngSubmit)="createClerk()">
+  <input type="text" placeholder="Name" [(ngModel)]="name" name="name" required />
+  <input type="number" placeholder="Manager ID" [(ngModel)]="managerId" name="managerId" required />
+  <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required />
+  <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+  <button type="submit" [disabled]="loading">Create Clerk</button>
+</form>
+
+<p class="error" *ngIf="error">{{ error }}</p>
+<div class="json-box-error" *ngIf="errorResponse">
+    <p><b>Error:</b> {{errorResponse.errorMessage}}</p>
+    <p><b>StatusCode:</b> {{errorResponse.statusCode}}</p>
+    <p><b>Contact:</b> {{errorResponse.toContact}}</p>
+    <p><b>Timestamp:</b> {{errorResponse.timestamp}}</p>
+  </div>
+<p class="success" *ngIf="successMessage">
+  {{ successMessage }}
+</p>
+
+<div class="json-box-success" *ngIf="createdClerk">
+    <p><b>Employee Id:</b> {{createdClerk.empId}}</p>
+    <p><b>Name:</b> {{createdClerk.name}}</p>
+    <p><b>Manager Employee Id:</b> {{createdClerk.manager.empId}}</p>
+    <p><b>Manager Name:</b> {{createdClerk.manager.name}}</p>
+</div>
+
+<div class="search-bar">
+  <input
+    placeholder="Search by Employee ID..."
+    [(ngModel)]="searchEmpId"
+    name="searchEmpId"
+  />
+
+  <button type="button" (click)="searchClerk()">
+    Search
+  </button>
+
+  <button
+    type="button"
+    (click)="clearSearch()"
+    class="clear-btn"
+  >
+    Clear
+  </button>
+</div>
+
+
+<table>
+  <thead>
+    <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clerk of clerks">
+      <td>{{ clerk.empId }}</td>
+      <td>{{ clerk.name }}</td>
+      <td><button (click)="deleteClerk(clerk.empId)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
